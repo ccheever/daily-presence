@@ -40,7 +40,7 @@ function randomPairings() {
   let y = shuffle(x);
   for (let i = 0; i < y.length; i += 2) {
     if (y[i + 1]) {
-      console.log(y[i] + ' & ' + y[i + 1]);
+      console.log(y[i] + "\t" + y[i + 1]);
     } else {
       console.log('extra: ' + y[i]);
     }
