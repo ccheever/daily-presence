@@ -22,17 +22,20 @@ let people = [
   'jj',
   'eric',
   'kirby',
-  // 'tc',
-  'jon',
-  'andrew',
+  'tc',
+  'jon samp',
+  // 'andrew',
   'quin',
   'nick',
-  // 'ide',
+  'ide',
   'will',
   'cedric',
-  // 'charlie',
+  'charlie',
   'jess',
   'brent',
+  'jon liak',
+  'sundeep',
+  // 'kudo',
 ];
 
 function randomPairings() {
@@ -47,6 +50,28 @@ function randomPairings() {
   }
 }
 
+function randomGroups(size) {
+  let x = Array.prototype.slice.call(people);
+  let y = shuffle(x);
+  let groups = [];
+  while (y.length > 0) {
+    let group = [];
+    for (let i = 0; i < size; i++) {
+      if (y.length > 0) {
+        group.push(y.pop());
+      } else {
+        break;
+      }
+    }
+    groups.push(group);
+  }
+  return groups;
+}
+
 if (require.main === module) {
-  randomPairings();
+  let x = randomGroups(4);
+  for (let i = 0; i < x.length; i++) {
+    console.log(x[i]);
+  }
+  // randomPairings();
 }
