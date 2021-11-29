@@ -21,7 +21,6 @@ function shuffle(array) {
 let people = [
   "bacon",
   "mike",
-  "cruzan",
   "juwan",
   "jj",
   "eric",
@@ -31,7 +30,7 @@ let people = [
   "andrew",
   "quin",
   "nick",
-  "ide",
+  "james",
   "will",
   "cedric",
   "charlie",
@@ -44,6 +43,7 @@ let people = [
 ];
 
 let updatesPeople = [
+  "charlie",
   "eric",
   "james",
   "jj",
