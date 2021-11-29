@@ -9,34 +9,52 @@ function shuffle(array) {
     currentIndex--;
 
     // And swap it with the current element.
-    [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex],
+      array[currentIndex],
+    ];
   }
 
   return array;
 }
 
 let people = [
-  'mike',
-  'cruzan',
-  'juwan',
-  'jj',
-  'eric',
-  'kirby',
-  'tc',
-  'jon samp',
-  // 'andrew',
-  'quin',
-  'nick',
-  'ide',
-  'will',
-  'cedric',
-  'charlie',
-  'jess',
-  'brent',
-  'jon liak',
-  'sundeep',
+  "bacon",
+  "mike",
+  "cruzan",
+  "juwan",
+  "jj",
+  "eric",
+  "kirby",
+  "tc",
+  "jon samp",
+  "andrew",
+  "quin",
+  "nick",
+  "ide",
+  "will",
+  "cedric",
+  "charlie",
+  "jess",
+  "brent",
+  "jon liak",
+  "sundeep",
   // 'kudo',
+  "kelley",
 ];
+
+let updatesPeople = [
+  "eric",
+  "james",
+  "jj",
+  "jon samp",
+  "nick",
+  "quin",
+  "tc",
+  "will",
+];
+
+let withoutUpdatesPeople = people.filter((x) => !updatesPeople.includes(x));
 
 function randomPairings() {
   let x = Array.prototype.slice.call(people);
@@ -45,13 +63,14 @@ function randomPairings() {
     if (y[i + 1]) {
       console.log(y[i] + "\t" + y[i + 1]);
     } else {
-      console.log('extra: ' + y[i]);
+      console.log("extra: " + y[i]);
     }
   }
 }
 
-function randomGroups(size) {
-  let x = Array.prototype.slice.call(people);
+function randomGroups(size, ppl) {
+  ppl = ppl || people;
+  let x = Array.prototype.slice.call(ppl);
   let y = shuffle(x);
   let groups = [];
   while (y.length > 0) {
@@ -69,9 +88,14 @@ function randomGroups(size) {
 }
 
 if (require.main === module) {
-  let x = randomGroups(4);
+  let x = randomGroups(4, withoutUpdatesPeople);
   for (let i = 0; i < x.length; i++) {
     console.log(x[i]);
   }
+  let y = randomGroups(3, updatesPeople);
+  for (let i = 0; i < y.length; i++) {
+    console.log(y[i]);
+  }
+
   // randomPairings();
 }
